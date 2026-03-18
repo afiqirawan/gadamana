@@ -1,0 +1,178 @@
+/* Custom Styles for Gandamana Travel */
+
+/* Navbar Styling */
+.nav-glass {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.3);
+    transition: all 0.4s ease;
+}
+
+/* Biar konten di navbar gak nempel ke atas/bawah */
+.nav-glass .flex {
+    align-items: center;
+}
+
+/* Tambahan biar logo lu yang tadi kecil bisa lebih "pop-up" */
+.nav-glass img {
+    max-height: 100%; /* Biar gak ngelewati tinggi navbar */
+    transition: transform 0.3s ease;
+}
+
+/* Hero Overlay Gradient */
+.hero-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 51, 102, 0.3) 0%, /* Navy tint */
+        rgba(0, 0, 0, 0.6) 100%
+    );
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title-anim {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-subtitle-anim {
+    opacity: 0; /* Mulai dari invisible */
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards; /* Delay 0.3s */
+}
+
+/* KARTU PAKET*/
+.btn-hover-effect {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover-effect:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Font Smoothing */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.tab-btn.active {
+    background: #2563eb; /* Blue-600 */
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* --- 1. CONTAINER: BIAR KARTU SELALU DI TENGAH --- */
+#trip-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* MAKSA SEMUA KARTU KE TENGAH LAYAR */
+    gap: 2rem;
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto; /* Nengahin containernya sendiri di browser */
+    width: 100%;
+}
+
+/* --- 2. KARTU: UKURAN STABIL KAYAK PRIVATE --- */
+#trip-container .trip-card {
+    display: flex;
+    flex-direction: column;
+    width: 350px; /* Kunci lebar biar gak ngelebar depresi */
+    height: 560px; /* Tinggi seragam buat nampung list benefit */
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid #f3f4f6;
+    transition: transform 0.3s ease;
+}
+
+/* Biar fungsi filter JS (hidden) tetep menang */
+.hidden {
+    display: none !important;
+}
+
+/* --- 3. GAMBAR: PROPORSI CAKEP (ANTI GEPENG) --- */
+.trip-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Foto di-crop otomatis, gak ketarik melar */
+    object-position: center;
+    flex-shrink: 0;
+}
+
+/* --- 4. KONTEN & LIST BENEFIT --- */
+.trip-card .p-6 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+/* Warna Ikon List */
+.trip-card ul li span {
+    color: #f97316;
+}
+
+/* --- 5. TAMPILAN PREMIUM (WARNA EMAS/ORANYE) --- */
+.trip-card[data-category="premium"] {
+    border: 2px solid #fed7aa; /* Border oranye soft */
+}
+
+/* Tombol & Badge Premium */
+.trip-card[data-category="premium"] .bg-orange-500 {
+    background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+}
+
+.trip-card[data-category="premium"] .text-orange-600 {
+    color: #ea580c;
+}
+
+
+/*POP UP HALAMAN*/
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* Hilangkan garis scroll di semua browser */
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Efek transisi biar halus pas pindah warna */
+.tab-btn {
+    transition: all 0.3s ease;
+}
+
+/* Biar tombol ada efek 'mendok' pas diklik */
+.tab-btn:active {
+    transform: scale(0.95);
+}
